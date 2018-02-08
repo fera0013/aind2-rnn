@@ -9,15 +9,9 @@ import keras
 # TODO: fill out the function below that transforms the input series 
 # and window-size into a set of input/output pairs for use with our RNN model
 def window_transform_series(series, window_size):
-    # containers for input/output pairs
-    X = [series[i:(i+window_size)] for i in range(series.size)]
-    y = series[window_size:]
-    # reshape each 
-    X = np.asarray(X)
-    X.shape = (np.shape(X)[0:2])
-    y = np.asarray(y)
-    y.shape = (len(y),1)
-
+    X = np.asarray([series[i:(i+window_size)] for i in range(series.size-window_size)])
+    y = np.asarray(series[window_size:])
+    y = np.reshape(y, (len(y),1)) #optional
     return X,y
 
 ## TODO: build an RNN to perform regression on our time series input/output data
@@ -44,13 +38,3 @@ def window_transform_text(text, window_size, step_size):
 def build_part2_RNN(window_size, num_chars):
     pass
 
-
-if __name__ == "__main__":
-    odd_nums = np.array([1,3,5,7,9,11,13])
-    X,y=window_transform_series(odd_nums, 2)
-    print '--- the input X will look like ----'
-    print X
-
-    print '--- the associated output y will look like ----'
-    print y
-    print '_'
