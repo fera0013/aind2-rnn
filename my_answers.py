@@ -46,4 +46,4 @@ def build_part2_RNN(window_size, num_chars):
     model.add(LSTM(200, input_shape = (window_size,num_chars)))
     model.add(Dense(num_chars))
     model.add(Activation('softmax'))
-
+    return model
