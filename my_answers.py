@@ -5,7 +5,7 @@ from keras.layers import Dense
 from keras.layers import LSTM
 from keras.layers import Activation
 import keras
-
+import re
 
 # TODO: fill out the function below that transforms the input series 
 # and window-size into a set of input/output pairs for use with our RNN model
