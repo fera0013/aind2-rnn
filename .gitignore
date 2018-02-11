@@ -19,3 +19,6 @@ ENV/
 *.sln
 .vs/aind2-rnn/v15/.suo
 aind2-rnn.pyproj
+*.json
+*.zip
+*.config
