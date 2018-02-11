@@ -33,7 +33,7 @@ def cleaned_text(text):
 def window_transform_text(text, window_size, step_size):
     # containers for input/output pairs
     inputs = [text[i:window_size] for i in range(0,len(text)-window_size,step_size)]
-    outputs = [text[i] for i in range(window_size,len(text)-window_size,step_size+window_size)]
+    outputs = [text[i-1] for i in range(window_size,len(text)-window_size,step_size+window_size)]
     return inputs,outputs
 
 ## TODO build the required RNN model: 
